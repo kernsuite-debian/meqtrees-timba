@@ -1,0 +1,73 @@
+meqtrees-timba (1.5.0-1trusty) trusty; urgency=medium
+
+  * force casarest dependencies
+
+ -- Gijs Molenaar (launchpad ppa build key) <gijs@pythonic.nl>  Tue, 19 Jan 2016 12:50:48 +0200
+
+meqtrees-timba (1.5.0-0trusty) trusty; urgency=medium
+
+  * new upstream release
+
+ -- Gijs Molenaar (launchpad ppa build key) <gijs@pythonic.nl>  Mon, 18 Jan 2016 11:31:08 +0200
+
+meqtrees-timba (1.4.0-2trusty) trusty; urgency=medium
+
+  * added missing boost deps
+
+ -- Gijs Molenaar (launchpad ppa build key) <gijs@pythonic.nl>  Tue, 14 Jul 2015 19:13:49 +0200
+
+meqtrees-timba (1.4.0-1trusty) trusty; urgency=medium
+
+  * new upstream release
+
+ -- Gijs Molenaar (launchpad ppa build key) <gijs@pythonic.nl>  Tue, 14 Jul 2015 17:37:12 +0200
+
+meqtrees-timba (1.3.4-2trusty) trusty; urgency=medium
+
+  * build with casarest
+
+ -- Gijs Molenaar (launchpad ppa build key) <gijs@pythonic.nl>  Tue, 14 Jul 2015 16:44:45 +0200
+
+meqtrees-timba (1.3.4-1trusty) trusty; urgency=medium
+
+  * new upstream release
+
+ -- Gijs Molenaar (launchpad ppa build key) <gijs@pythonic.nl>  Mon, 26 Jan 2015 13:31:36 +0200
+
+meqtrees-timba (1.3.1-1trusty) trusty; urgency=low
+
+  * build for trusty
+
+ -- Gijs Molenaar <gijs@pythonic.nl>  Fri, 04 Apr 2014 14:16:30 +0200
+
+meqtrees-timba (1.3.1-3precise1) precise; urgency=low
+
+  * new upstream release
+  * add python-qwt5-qt4 python-qt4 dependencies
+  * split package in python/non-python
+
+ -- Gijs Molenaar <gijs@pythonic.nl>  Tue, 04 Mar 2014 14:07:24 +0200
+
+meqtrees-timba (1.3.1-2precise1) precise; urgency=low
+
+  * Set build type to Release (not debug)
+
+ -- Gijs Molenaar <gijs@pythonic.nl>  Fri, 14 Feb 2014 14:20:52 +0200
+
+meqtrees-timba (1.3.1-1precise1) precise; urgency=low
+
+  * new upstream release
+
+ -- Gijs Molenaar <gijs@pythonic.nl>  Tue, 04 Feb 2014 12:51:11 +0200
+
+meqtrees-timba (1.3.0-3precise1) precise; urgency=low
+
+  * Fix problem with python install path
+
+ -- Gijs Molenaar <gijs@pythonic.nl>  Thu, 30 Jan 2014 16:03:29 +0000
+
+meqtrees-timba (1.3.0-2precise1) precise; urgency=low
+
+  * Initial Release.
+
+ -- Gijs Molenaar <gijs@pythonic.nl>  Wed, 22 Jan 2014 16:16:15 +0000

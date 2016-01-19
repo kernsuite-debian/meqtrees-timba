@@ -1,0 +1,28 @@
+Source: meqtrees-timba
+Section: science
+Priority: extra
+Maintainer: vagrant <gijs@pythonic.nl>
+Build-Depends: debhelper (>= 8.0.0), cmake, libblitz0-dev, python-dev,
+ libcasacore2-dev, libblas-dev, liblapack-dev, libgdbm-dev, wcslib-dev,
+ libfftw3-dev, python-numpy, libcfitsio3-dev, casarest, libboost-thread-dev,
+ libboost-system-dev
+Standards-Version: 3.9.2
+Homepage: http://www.astron.nl/meqwiki/MeqTrees
+
+Package: libmeqtrees-timba0
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, casarest
+Description: implementing and solving arbitrary Measurement Equations
+
+Package: python-meqtrees-timba
+Architecture: any
+Depends: ${shlibs:Depends}, ${python:Depends}, ${misc:Depends},
+ libmeqtrees-timba0, python-qwt5-qt4, python-qt4
+Description: implementing and solving arbitrary Measurement Equations
+
+Package: meqtrees-timba
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends},
+ python-meqtrees-timba, libmeqtrees-timba0, casarest
+Description: implementing and solving arbitrary Measurement Equations
+
