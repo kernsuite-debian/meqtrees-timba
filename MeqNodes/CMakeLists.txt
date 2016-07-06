@@ -1,0 +1,295 @@
+INCLUDE_DIRECTORIES(${WCSLIB_INCLUDE_DIR})
+INCLUDE_DIRECTORIES(${FFTW3_INCLUDE_DIR})
+INCLUDE_DIRECTORIES(${CFITSIO_INCLUDE_DIR})
+if (FOUND_CUDA)
+
+else (FOUND_CUDA)
+  INCLUDE_DIRECTORIES(${CUDA_TOOLKIT_INCLUDE})
+endif(FOUND_CUDA)
+
+MEQPACKAGE(MeqNodes MEQ VisCube DMI TimBase)
+set(MeqNodes_includes
+    src/Abs.h
+    src/Acos.h
+    src/Add.h
+    src/AID-MeqNodes.h
+    src/Arg.h
+    src/Asin.h
+    src/Atan.h
+    src/Atan2.h
+    src/AzEl.h
+    src/AzElRaDec.h
+    src/Bessel.h
+    src/BlitzRandom.h
+    src/CasaParmTable.h
+    src/Ceil.h
+    src/Composer.h
+    src/Compounder.h
+    src/Condeq.h
+    src/Conj.h
+    src/Constant.h
+    src/CoordTransform.h
+    src/Cos.h
+    src/Cosh.h
+    src/CUDAPointSourceVisibility.h
+    src/CUDAPointSourceVisibilityCommon.h
+    src/DataCollect.h
+    src/DataConcat.h
+    src/Divide.h
+    src/EMFPar.h
+    src/Exp.h
+    src/Fabs.h
+    src/FFTBrick.h
+    src/FITSDataMux.h
+    src/FITSImage.h
+    src/FITSReader.h
+    src/FITSSpigot.h
+    src/FITSUtils.h
+    src/FITSWriter.h
+    src/Floor.h
+    src/FMod.h
+    src/Freq.h
+    src/Functional.h
+    src/GaussNoise.h
+    src/Grid.h
+    src/GridPoints.h
+    src/HistoryCollect.h
+    src/Identity.h
+    src/Imag.h
+    src/InterpolCoeff.h
+    src/Invert.h
+    src/LMN.h
+    src/LMRaDec.h
+    src/Log.h
+    src/LongLat.h
+    src/LST.h
+    src/MatrixInvert22.h
+    src/MatrixMultiply.h
+    src/Max.h
+    src/MaxLocation.h
+    src/Mean.h
+    src/MergeFlags.h
+    src/Min.h
+    src/MinLocation.h
+    src/ModRes.h
+    src/Multiply.h
+    src/NBrick.h
+    src/Negate.h
+    src/NElements.h
+    src/NoiseNode.h
+    src/Norm.h
+    src/ObjectRADec.h
+    src/ParAngle.h
+    src/ParmDBInterface.h
+    src/Parm.h
+    src/ParmTableUtils.h
+    src/Paster.h
+    src/PatchComposer.h
+    src/Polar.h
+    src/Pow2.h
+    src/Pow3.h
+    src/Pow4.h
+    src/Pow5.h
+    src/Pow6.h
+    src/Pow7.h
+    src/Pow8.h
+    src/Pow.h
+    src/PrivateFunction.h
+    src/Product.h
+    src/PSVTensor.h
+    src/RADec.h
+    src/RandomNoise.h
+    src/Real.h
+    src/ReductionFunction.h
+    src/ReplaceFlaggedValues.h
+    src/ReqMux.h
+    src/ReqSeq.h
+    src/Resampler.h
+    src/Rms.h
+    src/Selector.h
+    src/ShapeletVisTf.h
+    src/Sin.h
+    src/Sinh.h
+    src/Solver.h
+    src/Sqr.h
+    src/Sqrt.h
+    src/StationBeam.h
+    src/StdDev.h
+    src/Stokes.h
+    src/Stripper.h
+    src/Subtract.h
+    src/Sum.h
+    src/Tan.h
+    src/Tanh.h
+    src/TFSmearFactor.h
+    src/TFSmearFactorApprox.h
+#    src/ThrustPointSourceVisibility.h
+    src/TID-MeqNodes.h
+    src/TimeNode.h
+    src/ToComplex.h
+    src/Transpose.h
+    src/TypeIter-MeqNodes.h
+    src/UVBrick.h
+    src/UVDetaper.h
+    src/UVInterpol.h
+    src/UVInterpolWave.h
+    src/UVW.h
+    src/VisPhaseShiftArg.h
+    src/VisPhaseShift.h
+    src/WMean.h
+    src/WSRTCos3Beam.h
+    src/WSum.h
+    src/ZeroFlagger.h
+)
+INCLUDE_SETUP(MeqNodes ${MeqNodes_includes})
+set(meqNodes_src
+    src/Abs.cc
+    src/Acos.cc
+    src/Add.cc
+    src/AID-MeqNodes-Registry.cc
+    src/Arg.cc
+    src/Asin.cc
+    src/Atan.cc
+    src/Atan2.cc
+    src/AzEl.cc
+    src/AzElRaDec.cc
+    src/Bessel.cc
+    src/BlitzRandom.cc
+    src/CasaParmTable.cc
+    src/Ceil.cc
+    src/Composer.cc
+    src/Compounder.cc
+    src/Condeq.cc
+    src/Conj.cc
+    src/Constant.cc
+    src/CoordTransform.cc
+    src/Cos.cc
+    src/Cosh.cc
+    src/CUDAPointSourceVisibility.cc
+    src/DataCollect.cc
+    src/DataConcat.cc
+    src/Divide.cc
+    src/EMFPar.cc
+    src/Exp.cc
+    src/Fabs.cc
+    src/FFTBrick.cc
+    src/FITSDataMux.cc
+    src/FITSImage.cc
+    src/FITSReader.cc
+    src/FITSSpigot.cc
+    src/FITSUtils.cc
+    src/FITSWriter.cc
+    src/Floor.cc
+    src/FMod.cc
+    src/Freq.cc
+    src/Functional.cc
+    src/GaussNoise.cc
+    src/Grid.cc
+    src/GridPoints.cc
+    src/HistoryCollect.cc
+    src/Identity.cc
+    src/Imag.cc
+    src/InterpolCoeff.cc
+    src/Invert.cc
+    src/LMN.cc
+    src/LMRaDec.cc
+    src/Log.cc
+    src/LongLat.cc
+    src/LST.cc
+    src/MatrixInvert22.cc
+    src/MatrixMultiply.cc
+    src/Max.cc
+    src/MaxLocation.cc
+    src/Mean.cc
+    src/MergeFlags.cc
+    src/Min.cc
+    src/MinLocation.cc
+    src/ModRes.cc
+    src/Multiply.cc
+    src/NBrick.cc
+    src/Negate.cc
+    src/NElements.cc
+    src/NoiseNode.cc
+    src/Norm.cc
+    src/ObjectRADec.cc
+    src/ParAngle.cc
+    src/Parm.cc
+    src/ParmDBInterface.cc
+    src/ParmTableUtils.cc
+    src/Paster.cc
+    src/PatchComposer.cc
+    src/Polar.cc
+    src/Pow2.cc
+    src/Pow3.cc
+    src/Pow4.cc
+    src/Pow5.cc
+    src/Pow6.cc
+    src/Pow7.cc
+    src/Pow8.cc
+    src/Pow.cc
+    src/PrivateFunction.cc
+    src/Product.cc
+    src/PSVTensor.cc
+    src/RADec.cc
+    src/RandomNoise.cc
+    src/Real.cc
+    src/ReductionFunction.cc
+    src/ReplaceFlaggedValues.cc
+    src/ReqMux.cc
+    src/ReqSeq.cc
+    src/Resampler.cc
+    src/Rms.cc
+    src/Selector.cc
+    src/ShapeletVisTf.cc
+    src/Sin.cc
+    src/Sinh.cc
+    src/Solver.cc
+    src/Sqr.cc
+    src/Sqrt.cc
+    src/StationBeam.cc
+    src/StdDev.cc
+    src/Stokes.cc
+    src/Stripper.cc
+    src/Subtract.cc
+    src/Sum.cc
+    src/Tan.cc
+    src/Tanh.cc
+    src/TFSmearFactor.cc
+    src/TFSmearFactorApprox.cc
+    src/TimeNode.cc
+#    src/ThrustPointSourceVisibility.cc
+    src/ToComplex.cc
+    src/Transpose.cc
+    src/UVBrick.cc
+    src/UVDetaper.cc
+    src/UVInterpol.cc
+    src/UVInterpolWave.cc
+    src/UVW.cc
+    src/VisPhaseShiftArg.cc
+    src/VisPhaseShift.cc
+    src/WMean.cc
+    src/WSRTCos3Beam.cc
+    src/WSum.cc
+    src/ZeroFlagger.cc
+)
+
+
+set(meqNodes_cuda_src
+    src/CUDAPointSourceVisibility.cu
+)
+
+#set(meqNodes_cuda_src
+#    src/CUDAPointSourceVisibility.cu
+#    src/ThrustPointSourceVisibility.cu
+#)
+
+
+if (CUDA_FOUND)
+  cuda_add_library(meqnodes ${meqNodes_src} ${meqNodes_cuda_src})
+  cuda_compile_ptx (ptxfiles ${meqNodes_cuda_src})
+else(CUDA_FOUND)
+  add_library(meqnodes ${meqNodes_src})
+endif(CUDA_FOUND)
+
+install(TARGETS meqnodes DESTINATION ${LIBRARY_INSTALL_DIR})
+MEQPACKAGE_ADD_LIBRARIES(meqnodes ${WCSLIB_LIBRARIES} ${CFITSIO_LIBRARIES} ${FFTW3_LIBRARIES})
