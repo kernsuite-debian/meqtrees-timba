@@ -1,12 +1,24 @@
 Source: meqtrees-timba
 Section: science
 Priority: extra
-Maintainer: vagrant <gijs@pythonic.nl>
-Build-Depends: debhelper (>= 8.0.0), cmake, libblitz0-dev, python-dev,
- casacore-dev, libblas-dev, liblapack-dev, libgdbm-dev, wcslib-dev,
- libfftw3-dev, python-numpy, libcfitsio3-dev, casarest, libboost-thread-dev,
- libboost-system-dev
-Standards-Version: 3.9.2
+Maintainer: KERN packaging <packaging@kernsuite.info>
+Build-Depends:
+ debhelper (>= 8.0.0),
+ python-dev,
+ cmake,
+ casarest,
+ casacore-dev,
+ wcslib-dev,
+ libblitz0-dev,
+ liblapack-dev,
+ libfftw3-dev,
+ libcfitsio3-dev,
+ libblas-dev,
+ libgdbm-dev,
+ libboost-thread-dev,
+ libboost-system-dev,
+ python-numpy
+Standards-Version: 3.9.7
 Homepage: http://www.astron.nl/meqwiki/MeqTrees
 
 Package: libmeqtrees-timba0
@@ -37,7 +49,7 @@ Description: implementing and solving arbitrary Measurement Equations
 Package: meqtrees-timba
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends},
- python-meqtrees-timba, libmeqtrees-timba0, casarest
+ python-meqtrees-timba, libmeqtrees-timba0, casarest, python2.7
 Description: implementing and solving arbitrary Measurement Equations
  MeqTrees is a software package for implementing Measurement Equations. This
  makes it uniquely suited for simulation and calibration of radioastronomical

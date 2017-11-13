@@ -1,9 +1,9 @@
 Format: http://dep.debian.net/deps/dep5
 Upstream-Name: meqtrees-timba
-Source: <url://example.com>
+Source: http://meqtrees.net
 
 Files: *
-Copyright: <years> <put author's name and email here>
+Copyright: 2017 Oleg Smirnov <osmirnov@gmail.com>
 License: GPL-2.0+
 
 Files: debian/*

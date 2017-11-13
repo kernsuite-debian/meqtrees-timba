@@ -13,5 +13,9 @@ CMAKE_FLAGS = \
 override_dh_auto_configure:
 	dh_auto_configure -- $(CMAKE_FLAGS)
 
+override_dh_python2:
+	dh_python2
+	dh_numpy
+
 %:
 	dh $@ --parallel --with-python2
