@@ -14,7 +14,7 @@ Build-Depends:
  libfftw3-dev,
  libcfitsio-dev | libcfitsio3-dev,
  libblas-dev,
- libgdbm-dev,
+ libqdbm-dev,
  libboost-thread-dev,
  libboost-system-dev,
  python-numpy
