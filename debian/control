@@ -12,7 +12,7 @@ Build-Depends:
  libblitz0-dev,
  liblapack-dev,
  libfftw3-dev,
- libcfitsio3-dev,
+ libcfitsio-dev | libcfitsio3-dev,
  libblas-dev,
  libgdbm-dev,
  libboost-thread-dev,
