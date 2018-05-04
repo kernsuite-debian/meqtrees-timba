@@ -1,3 +1,10 @@
+meqtrees-timba (1.5.0-1kern5) bionic; urgency=medium
+
+  * compile for bionic
+  * fix dependency for bionic
+
+ -- KERN packaging <packaging@kernsuite.info>  Fri, 04 May 2018 10:21:44 +0200
+
 meqtrees-timba (1.5.0-1kern4) xenial; urgency=medium
 
   * version bump, already released kern3 on kern-dev
