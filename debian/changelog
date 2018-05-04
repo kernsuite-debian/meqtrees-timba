@@ -1,6 +1,7 @@
 meqtrees-timba (1.5.1-1kern1) bionic; urgency=medium
 
   * New upstream version 1.5.1
+  * change to qdbm
 
  -- KERN packaging <packaging@kernsuite.info>  Fri, 04 May 2018 10:52:12 +0200
 
