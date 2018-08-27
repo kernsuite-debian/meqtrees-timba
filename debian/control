@@ -23,7 +23,7 @@ Homepage: http://www.astron.nl/meqwiki/MeqTrees
 
 Package: libmeqtrees-timba0
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, casarest
+Depends: ${shlibs:Depends}, ${misc:Depends}, casarest, netbase
 Description: implementing and solving arbitrary Measurement Equations
  MeqTrees is a software package for implementing Measurement Equations. This
  makes it uniquely suited for simulation and calibration of radioastronomical
