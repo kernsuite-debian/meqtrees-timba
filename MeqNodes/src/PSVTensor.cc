@@ -21,12 +21,13 @@
 //#
 //# $Id: PSVTensor.cc 8270 2011-07-06 12:17:23Z oms $
 
+#include <cmath>
 #include <MeqNodes/PSVTensor.h>
 #include <DMI/AID-DMI.h>
 #include <MEQ/AID-Meq.h>
 #include <MeqNodes/AID-MeqNodes.h>
-#include <casa/BasicSL/Constants.h>
-using namespace casa;
+#include <casacore/casa/BasicSL/Constants.h>
+using namespace casacore;
 
 namespace Meq {
 
@@ -486,8 +487,8 @@ Vells PSVTensor::computeSmearingTerm (const Vells &p,const Vells &dp)
   return prod1*prod2;
 }
 
-#include <casa/BasicSL/Constants.h>
-using namespace casa;
+#include <casacore/casa/BasicSL/Constants.h>
+using namespace casacore;
 
 // FWHM = 2*sqrt{2*log(2)} sigma 
 const double fwhm2int = 1.0/std::sqrt(std::log(256));
