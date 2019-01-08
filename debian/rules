@@ -18,4 +18,4 @@ override_dh_python2:
 	dh_numpy
 
 %:
-	dh $@ --parallel --with-python2
+	dh $@ --parallel --with python2 --buildsystem=cmake
