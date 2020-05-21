@@ -3,26 +3,44 @@ Section: science
 Priority: extra
 Maintainer: KERN packaging <packaging@kernsuite.info>
 Build-Depends:
- debhelper (>= 8.0.0),
- python-dev,
- cmake,
- casarest,
+ debhelper (>= 9),
+ dh-python,
  casacore-dev,
- wcslib-dev,
+ casarest,
+ cmake,
+ gettext,
+ groff-base,
+ libarchive-zip-perl,
  libblitz0-dev,
- liblapack-dev,
- libfftw3-dev,
- libcfitsio-dev | libcfitsio3-dev,
- libblas-dev,
- libqdbm-dev,
- libboost-thread-dev,
  libboost-system-dev,
- python-numpy
-Standards-Version: 3.9.7
-Homepage: http://www.astron.nl/meqwiki/MeqTrees
+ libboost-thread-dev,
+ liblapack-dev,
+ libblas-dev,
+ libcfitsio-dev | libcfitsio3-dev,
+ libfftw3-dev,
+ libpipeline1,
+ libqdbm-dev,
+ libncurses5-dev,
+ libsofa1-dev,
+ intltool-debian,
+ bison,
+ libbison-dev,
+ libsigsegv2,
+ flex,
+ libreadline6-dev,
+ python3-all-dev,
+ python3-dev,
+ python-dev,
+ python3-numpy,
+ python-numpy,
+ wcslib-dev
+Standards-Version: 4.4.1
+Homepage: https://github.com/ska-sa/meqtrees-timba
+X-Python-Version: >= 2.7
+X-Python3-Version: >= 3.6
 
 Package: libmeqtrees-timba0
-Architecture: any
+Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}, casarest, netbase
 Description: implementing and solving arbitrary Measurement Equations
  MeqTrees is a software package for implementing Measurement Equations. This
@@ -34,10 +52,23 @@ Description: implementing and solving arbitrary Measurement Equations
  Tigger, which can also work as a standalone tool.
 
 Package: python-meqtrees-timba
-Architecture: any
+Architecture: all
 Depends: ${shlibs:Depends}, ${python:Depends}, ${misc:Depends},
  libmeqtrees-timba0, python-qwt5-qt4, python-qt4
-Description: implementing and solving arbitrary Measurement Equations
+Description: Implementing and solving arbitrary Measurement Equations
+ MeqTrees is a software package for implementing Measurement Equations. This
+ makes it uniquely suited for simulation and calibration of radioastronomical
+ data, especially that involving new radiotelescopes and observational
+ regimes.
+ .
+ MeqTrees includes a highly capable FITS viewer and sky model manager called
+ Tigger, which can also work as a standalone tool.
+
+Package: python3-meqtrees-timba
+Architecture: all
+Depends: ${shlibs:Depends}, ${python3:Depends}, ${misc:Depends},
+ libmeqtrees-timba0, python3-pyqt5, python3-pyqt4
+Description: Implementing and solving arbitrary Measurement Equations
  MeqTrees is a software package for implementing Measurement Equations. This
  makes it uniquely suited for simulation and calibration of radioastronomical
  data, especially that involving new radiotelescopes and observational
@@ -47,9 +78,9 @@ Description: implementing and solving arbitrary Measurement Equations
  Tigger, which can also work as a standalone tool.
 
 Package: meqtrees-timba
-Architecture: any
+Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends},
- python-meqtrees-timba, libmeqtrees-timba0, casarest, python2.7
+ python-meqtrees-timba, libmeqtrees-timba0
 Description: implementing and solving arbitrary Measurement Equations
  MeqTrees is a software package for implementing Measurement Equations. This
  makes it uniquely suited for simulation and calibration of radioastronomical

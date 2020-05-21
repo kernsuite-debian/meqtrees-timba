@@ -4,18 +4,27 @@
 # Uncomment this to turn on verbose mode.
 export DH_VERBOSE=1
 
-
 CMAKE_FLAGS = \
-	-DPYTHON_PACKAGES_DIR=/usr/lib/python2.7/dist-packages/ \
-	-DCMAKE_BUILD_TYPE=Release
-
+       -DPYTHON_PACKAGES_DIR=/usr/lib/python2.7/dist-packages/ \
+       -DCMAKE_BUILD_TYPE=Release
 
 override_dh_auto_configure:
 	dh_auto_configure -- $(CMAKE_FLAGS)
 
-override_dh_python2:
-	dh_python2
-	dh_numpy
+override_dh_auto_build:
+	dh_auto_build
+	set -ex; for python in $(shell py3versions -r); do \
+		mkdir _build; \
+		cd _build && cmake -DPYTHON_PACKAGES_DIR=../usr/lib/python3.6/dist-packages/ -DCMAKE_BUILD_TYPE=Release -DENABLE_PYTHON_3=ON ..; \
+		make -j4; \
+	done;
+
+
+override_dh_install:
+	set -ex; for python in $(shell py3versions -r); do \
+		cd _build && cmake -DCMAKE_INSTALL_PREFIX=debian/tmp/usr -P cmake_install.cmake; \
+	done;
+	dh_install
 
 %:
-	dh $@ --parallel --with python2 --buildsystem=cmake
+	dh $@ --with python2,python3 --buildsystem=cmake
