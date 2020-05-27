@@ -54,7 +54,7 @@ Description: implementing and solving arbitrary Measurement Equations
 Package: python-meqtrees-timba
 Architecture: all
 Depends: ${shlibs:Depends}, ${python:Depends}, ${misc:Depends},
- libmeqtrees-timba0, python-qwt5-qt4, python-qt4
+ libmeqtrees-timba0, python-qwt5-qt4, python-qt4, libqdbm14
 Description: Implementing and solving arbitrary Measurement Equations
  MeqTrees is a software package for implementing Measurement Equations. This
  makes it uniquely suited for simulation and calibration of radioastronomical
@@ -67,7 +67,7 @@ Description: Implementing and solving arbitrary Measurement Equations
 Package: python3-meqtrees-timba
 Architecture: all
 Depends: ${shlibs:Depends}, ${python3:Depends}, ${misc:Depends},
- libmeqtrees-timba0, python3-pyqt5, python3-pyqt4
+ libmeqtrees-timba0, python3-pyqt5, python3-pyqt4, libqdbm14
 Description: Implementing and solving arbitrary Measurement Equations
  MeqTrees is a software package for implementing Measurement Equations. This
  makes it uniquely suited for simulation and calibration of radioastronomical
