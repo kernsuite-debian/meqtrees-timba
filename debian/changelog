@@ -1,7 +1,7 @@
 meqtrees-timba (1.7.0-1kern1) focal; urgency=medium
 
   [ Athanaseus Javas Ramaila ]
-  * New upstream version 1.6.0
+  * New upstream version 1.7.0
   * Drop py2 support
   * Build for KERN-7 (focal) 
 
