@@ -21,7 +21,7 @@ Build-Depends:
  python3-numpy
 Standards-Version: 4.5.0
 Homepage: http://www.astron.nl/meqwiki/MeqTrees
-X-Python3-Version: 3.6
+X-Python3-Version: >= 3.6
 
 Package: libmeqtrees-timba0
 Architecture: any
@@ -38,7 +38,7 @@ Description: implementing and solving arbitrary Measurement Equations
 Package: python3-meqtrees-timba
 Architecture: any
 Depends: ${shlibs:Depends}, ${python3:Depends}, ${misc:Depends},
- libmeqtrees-timba0, python3-pyqt5, python3-pyqt4
+ libmeqtrees-timba0, python3-pyqt5, python3-qwt
 Description: implementing and solving arbitrary Measurement Equations
  MeqTrees is a software package for implementing Measurement Equations. This
  makes it uniquely suited for simulation and calibration of radioastronomical
@@ -50,7 +50,7 @@ Description: implementing and solving arbitrary Measurement Equations
 
 Package: meqtrees-timba
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${python3:Depends},
+Depends: ${shlibs:Depends}, ${misc:Depends},
  python3-meqtrees-timba, libmeqtrees-timba0, casarest
 Description: implementing and solving arbitrary Measurement Equations
  MeqTrees is a software package for implementing Measurement Equations. This
