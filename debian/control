@@ -3,7 +3,7 @@ Section: science
 Priority: extra
 Maintainer: KERN packaging <packaging@kernsuite.info>
 Build-Depends:
- debhelper (>= 9),
+ debhelper (>= 11),
  dh-python,
  python3-dev,
  cmake,
