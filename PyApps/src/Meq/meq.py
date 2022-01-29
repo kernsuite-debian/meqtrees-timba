@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 #
@@ -30,7 +30,6 @@ from Timba import dmi
 from Timba.dmi import *
 
 from Timba.array import *
-from Timba.Meq import meqds
 from Timba import mequtils
 
 domain_ndim = 2;

@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 #
@@ -28,18 +28,21 @@
 
 from Timba.Apps import app_defaults
 
-if app_defaults.include_gui:
-  import Timba.GUI.app_proxy_gui;
-  if app_defaults.args.threads:
-    import Timba.qt_threading;
 
 try:
   from PyQt4.Qt import QObject,SIGNAL
   from Kittens.widgets import PYSIGNAL
-except:
+  QT_AVAILABLE = True
+except ImportError:
   print("Qt not available, substituting proxy types for QObject");
   from .QObject import QObject,PYSIGNAL
-  
+  SIGNAL = PYSIGNAL
+  QT_AVAILABLE = False
+
+if app_defaults.include_gui and QT_AVAILABLE:
+  import Timba.GUI.app_proxy_gui;
+  if app_defaults.args.threads:
+    import Timba.qt_threading;
 
 from Timba.dmi import *
 from Timba import octopussy
@@ -285,7 +288,7 @@ class multiapp_proxy (verbosity):
     self.servers[addr] = server;
     self.dprint(2, "requesting state and status update");
     self.send_command("Request.State",destination=addr);
-    self.client.emit(SIGNAL("serverConnected"),server,);
+    self.client.emit(SIGNAL("serverConnected"),server);
     self._gui_event_handler(self.hello_event,addr,server);
     self._gui_event_handler(self.server_state_event,record(),server);
     # is an auto-attach request in place?
@@ -433,7 +436,7 @@ class multiapp_proxy (verbosity):
         timeout = 5;
       while not self.current_server:
         self.dprint(2,'no connection to servers, awaiting (wait=',wait,')');
-        res = self._pwp.await('*',resume=True,timeout=5);  # await anything, but keep looping until status changes
+        res = self._pwp.await_('*',resume=True,timeout=5);  # await anything, but keep looping until status changes
         self.dprint(3,'await returns',res);
         if time.time() >= endtime:
           raise RuntimeError("timeout waiting for connection");
@@ -512,7 +515,8 @@ class multiapp_proxy (verbosity):
       args = (self._rcv_prefix + args[0],) + args[1:];
     return self._pwp.whenever(*args,**kwargs);
     
-  def await (self,what,timeout=None,resume=False):
+
+  def await_(self,what,timeout=None,resume=False):
     "interface to pwp's event loop, in the await form";
     if timeout is not None:
       await_timeout = min(1,timeout);
@@ -523,7 +527,7 @@ class multiapp_proxy (verbosity):
       # throw error on disconnect
       if not self.servers:
         raise RuntimeError("lost all connections while waiting for event "+str(what));
-      res = self._pwp.await(self._rcv_prefix + what,timeout=await_timeout,resume=resume);
+      res = self._pwp.await_(self._rcv_prefix + what,timeout=await_timeout,resume=resume);
       # return message if something is received
       if res is not None:
         return res;

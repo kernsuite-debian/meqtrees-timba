@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 #
@@ -39,9 +39,8 @@ if app_defaults.include_gui:
   try:
     from Timba.GUI import meqserver_gui
     from Timba.GUI.meqserver_gui import *
-  except:
+  except ImportError:
     print("*** Error importing GUI modules:");
-    traceback.print_exc();
     pass;
 
 # #-------- update default debuglevels
@@ -124,7 +123,7 @@ class meqserver (multiapp_proxy):
       self.dprint(5,'arguments are ',args);
       self.pause_events();
       self.send_command('command'+command,payload);
-      msg = self.await(replyname,resume=True,timeout=wait);
+      msg = self.await_(replyname,resume=True,timeout=wait);
       return msg.payload;
     # else simply send command
     else: 
