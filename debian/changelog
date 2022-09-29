@@ -1,3 +1,10 @@
+meqtrees-timba (1.9.0.1-1kern1) focal; urgency=medium
+
+  [ Athanaseus Javas Ramaila ]
+  * New upstream version 1.9.0.1
+
+ -- KERN packaging <packaging@kernsuite.info>  Thu, 29 Sep 2022 12:56:02 +0000
+
 meqtrees-timba (1.8.3-1kern2) focal; urgency=medium
 
   [ Athanaseus Javas Ramaila ]
