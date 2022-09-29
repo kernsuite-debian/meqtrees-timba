@@ -46,12 +46,7 @@ if ("${ENABLE_PYTHON_3}")
     find_package(PythonInterp ${PYREQ_VER} REQUIRED)    
     find_package(PythonLibs ${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR} EXACT REQUIRED)
 else("${ENABLE_PYTHON_3}")
-    message("-- Compiling backend against Python 2.7")
-    message("-- If this is not the intended target specify the ENABLE_PYTHON_3 switch")
-    set(PYREQ_VER 2.7)
-    set(PYABI .cpython-27)
-    find_package(PythonInterp ${PYREQ_VER} EXACT REQUIRED)
-    find_package(PythonLibs ${PYREQ_VER} EXACT REQUIRED)
+    message(FATAL_ERROR "Python 2.7 building no longer supported")
 endif("${ENABLE_PYTHON_3}")
 
 include (FindPythonInterp)
@@ -113,7 +108,18 @@ endif(DBM_FLAGS)
 
 if(CASACORE_FOUND)
     add_definitions(-DHAVE_AIPSPP)
+    message("-- Casacore include directories found in ${CASACORE_INCLUDE_DIR}")
+    message("-- Casacore libraries found in ${CASACORE_LIBRARIES}")
+    include_directories(${CASACORE_INCLUDE_DIR})
 endif(CASACORE_FOUND)
+
+find_package(Casarest REQUIRED COMPONENTS synthesis)
+
+if(CASAREST_FOUND)
+    message("-- Casarest include directories found in ${CASAREST_INCLUDE_DIR}")
+    message("-- Casarest libraries found in ${CASAREST_LIBRARIES}")
+    include_directories(${CASAREST_INCLUDE_DIR})
+endif(CASAREST_FOUND)
 
 # -- compiler defaults
 add_definitions(-DUSE_STD_COMPLEX -DMAKE_LOFAR_SYMBOLS_GLOBAL -DUSE_THREADS -fPIC)
