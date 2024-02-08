@@ -3,7 +3,7 @@ Section: science
 Priority: extra
 Maintainer: KERN packaging <packaging@kernsuite.info>
 Build-Depends:
- debhelper (>= 11),
+ debhelper-compat (= 13),
  dh-python,
  python3-dev,
  cmake,
@@ -19,7 +19,7 @@ Build-Depends:
  libboost-thread-dev,
  libboost-system-dev,
  python3-numpy
-Standards-Version: 4.6.1
+Standards-Version: 4.6.2.0
 Homepage: http://www.astron.nl/meqwiki/MeqTrees
 X-Python3-Version: >= 3.6
 
